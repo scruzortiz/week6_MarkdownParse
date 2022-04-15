@@ -11,8 +11,6 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
-        System.out.println(toReturn);
-        System.out.println(markdown.length());
         while(currentIndex < markdown.length()) {
             int openBracket = markdown.indexOf("[", currentIndex);
             if (openBracket == -1) {
@@ -28,9 +26,10 @@ public class MarkdownParse {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;
             }
-            System.out.println(toReturn);
         }
-
+        if (toReturn.size() == 0) {
+            System.out.println("No links found");
+        }
         return toReturn;
     }
 
