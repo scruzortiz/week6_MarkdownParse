@@ -3,16 +3,15 @@ import java.nio.file.Path;
 import org.junit.*;
 import java.nio.file.Files;
 import java.util.*;
-import java.nio.file.Path;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
 
 
 public class MarkdownParseTest {
-    ArrayList<String> expectedlinks;
+    ArrayList<String> expectedlinks; //ArrayList utilized by tests 1, 2, 3, and 4
 
     @Before
     public void setup() {
+        //Populate array with desired output
         expectedlinks = new ArrayList<>();
         expectedlinks.add("https://something.com");
         expectedlinks.add("some-thing.html");
@@ -23,8 +22,11 @@ public class MarkdownParseTest {
         assertEquals(2, 1 + 1);
     }
 
+    /*
+    / Test markdown file w/ two links present
+    */
     @Test
-    public void testMarkdownParse() {
+    public void testMarkdownParseFile1() {
         Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file.md");
 
         try {
@@ -34,6 +36,84 @@ public class MarkdownParseTest {
             for (int i = 0; i < parsedLinks.size(); ++i) {
                 assertEquals(expectedlinks.get(i), parsedLinks.get(i));
             }
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
+    /*
+    / Test markdown file w/ two links and an image present
+    */
+    @Test
+    public void testMarkdownParseFile2() {
+        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file2.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            for (int i = 0; i < parsedLinks.size(); ++i) {
+                assertEquals(expectedlinks.get(i), parsedLinks.get(i));
+            }
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
+    /*
+    / Test markdown file w/ two links, an image present, and no title
+    */
+    @Test
+    public void testMarkdownParseFile3() {
+        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file3.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            for (int i = 0; i < parsedLinks.size(); ++i) {
+                assertEquals(expectedlinks.get(i), parsedLinks.get(i));
+            }
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
+    /*
+    / Test markdown file w/ two links and an image present, with extra space at the end
+    */
+    @Test
+    public void testMarkdownParseFile4() {
+        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file4.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            for (int i = 0; i < parsedLinks.size(); ++i) {
+                assertEquals(expectedlinks.get(i), parsedLinks.get(i));
+            }
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
+    /*
+    / Test markdown file w/ no links present
+    */
+    @Test
+    public void testMarkdownParseFile5() {
+        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file5.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            assertEquals(0, parsedLinks.size());
         } catch (Exception e) {
             System.out.println("Error: file not found!");
         }
