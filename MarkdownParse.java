@@ -13,11 +13,16 @@ public class MarkdownParse {
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
             int openBracket = markdown.indexOf("[", currentIndex);
+            //No links left to be found exit
             if (openBracket == -1) {
                 break;
             }
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
+            //no close paren so there is no link, ensures no infinite loop
+            if (openParen == -1) {
+                break;
+            }
             int closeParen = markdown.indexOf(")", openParen);
             if (markdown.charAt(openBracket-1)== '!' || openParen != closeBracket-1) {
                 currentIndex = closeParen + 1;
