@@ -119,4 +119,59 @@ public class MarkdownParseTest {
         }
 
     }
+
+    /*
+    / Test markdown file w/ no links present, but empty brackets are present
+    */
+    @Test
+    public void testMarkdownParseFile6() {
+        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file6.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            assertEquals(0, parsedLinks.size());
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
+    /*
+    / Test markdown file w/ no links present, but lines that look like links
+    */
+    @Test
+    public void testMarkdownParseFile7() {
+        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file7.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            assertEquals(0, parsedLinks.size());
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
+    /*
+    / Test markdown file w/ only ")[" present, not a link
+    */
+    @Test
+    public void testMarkdownParseFile8() {
+        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file8.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            assertEquals(0, parsedLinks.size());
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
 }
