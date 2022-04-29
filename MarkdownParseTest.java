@@ -168,7 +168,7 @@ public class MarkdownParseTest {
             String fileContents = Files.readString(filePath);
             ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
 
-            assertEquals(1, parsedLinks.size());
+            assertEquals(0, parsedLinks.size());
         } catch (Exception e) {
             System.out.println("Error: file not found!");
         }
