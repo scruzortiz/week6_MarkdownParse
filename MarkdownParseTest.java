@@ -47,7 +47,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile2() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file2.md");
+        Path filePath = Path.of("test-file2.md");
 
         try {
             String fileContents = Files.readString(filePath);
