@@ -94,6 +94,7 @@ public class MarkdownParseTest {
             ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
 
             for (int i = 0; i < parsedLinks.size(); ++i) {
+                System.out.println(parsedLinks.get(i));
                 assertEquals(expectedlinks.get(i), parsedLinks.get(i));
             }
         } catch (Exception e) {
