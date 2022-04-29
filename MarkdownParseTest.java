@@ -27,7 +27,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile1() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file.md");
+        Path filePath = Path.of("test-file1.md");
 
         try {
             String fileContents = Files.readString(filePath);
@@ -67,7 +67,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile3() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file3.md");
+        Path filePath = Path.of("test-file2.md");
 
         try {
             String fileContents = Files.readString(filePath);
@@ -87,7 +87,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile4() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file4.md");
+        Path filePath = Path.of("test-file4.md");
 
         try {
             String fileContents = Files.readString(filePath);
@@ -108,7 +108,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile5() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file5.md");
+        Path filePath = Path.of("test-file5.md");
 
         try {
             String fileContents = Files.readString(filePath);
@@ -126,7 +126,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile6() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file6.md");
+        Path filePath = Path.of("test-file6.md");
 
         try {
             String fileContents = Files.readString(filePath);
@@ -144,7 +144,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile7() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file7.md");
+        Path filePath = Path.of("test-file7.md");
 
         try {
             String fileContents = Files.readString(filePath);
@@ -162,13 +162,13 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile8() {
-        Path filePath = Path.of("C:/Users/drake/OneDrive/Documents/GitHub/markdown-parser-fork/test-file8.md");
+        Path filePath = Path.of("test-file18.md");
 
         try {
             String fileContents = Files.readString(filePath);
             ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
 
-            assertEquals(0, parsedLinks.size());
+            assertEquals(1, parsedLinks.size());
         } catch (Exception e) {
             System.out.println("Error: file not found!");
         }
