@@ -162,7 +162,7 @@ public class MarkdownParseTest {
     */
     @Test
     public void testMarkdownParseFile8() {
-        Path filePath = Path.of("test-file18.md");
+        Path filePath = Path.of("test-file8.md");
 
         try {
             String fileContents = Files.readString(filePath);
